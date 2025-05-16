@@ -1,0 +1,8 @@
+Recomendações para melhorar o PDI:
+
+- Tente aumentar a variável 'Velocidade_Alimentador' para melhorar o PDI.
+- Tente aumentar a variável 'Temp_Condicionador' para melhorar o PDI.
+- Tente aumentar a variável 'Taxa_Compressao' para melhorar o PDI.
+- Tente aumentar a variável 'Amperagem_Condicionador' para melhorar o PDI.
+- Tente aumentar a variável 'Amperagem_Peletizadora' para melhorar o PDI.
+- Tente aumentar a variável 'Pressao_Caldeira' para melhorar o PDI.

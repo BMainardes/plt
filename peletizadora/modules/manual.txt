@@ -1,0 +1,114 @@
+
+
+Componentes principais:
+DataProcessor:
+
+Responsável pelo carregamento e pré-processamento dos dados brutos provenientes da operação da peletizadora.
+
+Inclui tratamento de valores faltantes (imputação pela mediana) e detecção/correção de outliers via método IQR.
+
+Padroniza os nomes das variáveis para facilitar a manipulação.
+
+ExploratoryAnalysis:
+
+Realiza análise exploratória dos dados, gerando gráficos de distribuição, correlação e relações-chave entre variáveis.
+
+Pode salvar essas visualizações para documentação ou auditoria.
+
+ModelTrainer:
+
+Treina modelos preditivos para estimar o PDI baseado nos dados processados.
+
+Suporta três algoritmos: regressão bayesiana, Random Forest e Gradient Boosting.
+
+Realiza ajuste fino dos hiperparâmetros via Grid Search para os modelos baseados em árvores.
+
+Avalia o desempenho usando validação cruzada e calcula a importância das variáveis.
+
+Visualization:
+
+Responsável pela geração e exibição de gráficos para análise do desempenho do modelo e da relação entre variáveis.
+
+Suporta salvar os gráficos automaticamente para posterior consulta.
+
+PDIMonitor:
+
+Implementa o monitoramento em tempo real dos parâmetros operacionais, verificando se estão dentro dos limites recomendados.
+
+Gera alertas e recomendações para ajustar os parâmetros visando melhorar o PDI previsto.
+
+PDIReport:
+
+Gera relatórios de recomendações automáticas baseadas na importância das variáveis do modelo.
+
+Salva esses relatórios em arquivos organizados para suporte à decisão.
+
+Benefícios e Aplicações
+Previsão antecipada do PDI: Permite ajustar parâmetros operacionais antes de comprometer a qualidade.
+
+Monitoramento contínuo: Alertas automáticos ajudam a evitar operações fora da faixa ideal.
+
+Decisão baseada em dados: Relatórios claros e visualizações auxiliam a equipe técnica na tomada de decisão.
+
+Flexibilidade: Possibilidade de escolher o algoritmo mais adequado ao ambiente computacional.
+
+Organização dos dados e relatórios: Facilita auditoria e análise histórica.
+
+Manual do Usuário – Sistema de Previsão e Monitoramento do PDI
+Requisitos
+Python 3.8+ instalado com bibliotecas: pandas, numpy, scikit-learn, matplotlib, seaborn, joblib.
+
+Dados operacionais em formato CSV conforme especificado no arquivo DATA_PATH.
+
+Passos para executar
+Configuração inicial:
+
+Ajuste o caminho dos dados (DATA_PATH), diretórios de saída (MODEL_DIR, REPORT_DIR, PLOT_DIR) no arquivo config.py.
+
+Opcional: ajuste os limites operacionais no CONTROL_LIMITS.
+
+Treinamento do modelo:
+
+Execute o script principal main.py passando o modelo desejado (opcional):
+
+
+python main.py --model random_forest
+
+Os modelos disponíveis são: bayesian, random_forest, gradient_boosting. O padrão é random_forest.
+
+O sistema carregará e processará os dados, treinará o modelo escolhido, gerará gráficos e salvará relatórios com recomendações.
+
+Visualização dos resultados:
+
+Os gráficos de análise exploratória e desempenho do modelo são salvos automaticamente no diretório configurado (PLOT_DIR).
+
+Relatórios de recomendações ficam em REPORT_DIR.
+
+Monitoramento operacional:
+
+Após o treinamento, o sistema pode executar a análise de um conjunto atual de parâmetros (exemplo no main.py).
+
+Essa análise gera previsão de PDI, alertas de parâmetros fora da faixa e sugestões para ajuste.
+
+Arquivos principais
+main.py: controla o fluxo do sistema (carregamento, treinamento, visualização, monitoramento).
+
+data_processor.py: processamento e limpeza dos dados.
+
+exploratory_analysis.py: análise estatística e gráfica inicial.
+
+model_trainer.py: treinamento, ajuste e avaliação dos modelos.
+
+visualization.py: funções para plotagem e salvamento de gráficos.
+
+monitoring_system.py: lógica de monitoramento e recomendações em tempo real.
+
+report.py: geração e salvamento de relatórios de recomendação.
+
+Dicas
+Use o argumento --model para escolher o modelo mais adequado conforme a capacidade do computador.
+
+Sempre revise os gráficos salvos para entender o comportamento dos dados e do modelo.
+
+Utilize os relatórios para orientar ajustes na linha de produção e melhorar a qualidade.
+

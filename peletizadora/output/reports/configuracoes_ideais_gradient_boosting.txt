@@ -1,0 +1,10 @@
+Configurações Ideais para PDI Alto e Finos Baixos:
+
+Pressao_Caldeira: 8.9000
+Taxa_Compressao: 18.0000
+Afastamento_Rolos: 0.0000
+Amperagem_Condicionador: 39.0000
+Velocidade_Alimentador: 46.0000
+Temp_Condicionador: 75.0000
+Pressao_Vapor: 1.6000
+Amperagem_Peletizadora: 635.0000
